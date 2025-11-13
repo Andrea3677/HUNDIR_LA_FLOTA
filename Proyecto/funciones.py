@@ -62,7 +62,7 @@ def coordenada_valida(i,j):
     else:
         i = int(i)-1
         j = int(j)
-        if i > 10 or j > 10:
+        if i > 10 or j > 9:
             return False, i, j 
         elif i < 0 or j < 0:
             return False, i, j
@@ -78,7 +78,7 @@ def jugada_humana(tablero_maquina, tablero_disparos):
         i, j = input_coordenada_jh()
         validez, i, j = coordenada_valida(i,j)
         if validez == False:
-            print(f"Coordenada inválida🙄. Sólo se admiten numeros de 0 al 10, mira el tablero🙄.")
+            print(f"Coordenada inválida🙄. Sólo se admiten numeros del 0 al 10 según el eje, mira el tablero🙄.")
             print(f"Pierdes el turno🤷🏼‍♀️")
             continuar = False
         else:
