@@ -55,11 +55,9 @@ def disparar(coordenada_i, coordenada_j, tablero):
 
 #Función para comprobar si la coordenada es válida
 def coordenada_valida(i,j):
-    if i.isalpha() or j.isalpha():
+    if len(i)!= 1 or len(j)!= 1:
         return False,i,j
-    elif i.isalnum() or j.isalnum():
-        return False,i,j
-    elif i.isdigit() or j.isdigit() == False:
+    elif i.isalpha() or j.isalpha():
         return False,i,j
     else:
         i = int(i)-1
@@ -75,7 +73,7 @@ def coordenada_valida(i,j):
 #Función para el turno humano
 def jugada_humana(tablero_maquina, tablero_disparos):
     continuar = True
-    time.sleep(2)
+    time.sleep(1)
     while continuar == True:
         i, j = input_coordenada_jh()
         validez, i, j = coordenada_valida(i,j)
@@ -87,14 +85,16 @@ def jugada_humana(tablero_maquina, tablero_disparos):
             if tablero_maquina[j][i] == "B":
                 tablero_maquina[j][i] = "X"
                 tablero_disparos[j][i] = "X"
+                print()
                 print(f"Tocado en posición {i+1},{j}. Vuelves a disparar.")
                 print("Registro de disparos humanos :")
-                imprimir_tablero(tablero_disparos)  
+                imprimir_tablero(tablero_disparos)
                 continuar = True
             elif tablero_maquina[j][i] == " ":
                 tablero_maquina[j][i] = "O"
                 tablero_disparos[j][i] = "O"
                 continuar = False
+                print()
                 print(f"Agua en posición {i+1},{j}.")
                 print("Registro de disparos humanos :")
                 imprimir_tablero(tablero_disparos) 
