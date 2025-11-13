@@ -34,8 +34,8 @@ def pintar_barcos(barcos,tablero):
 
 #Función para el input de la coordenada del jugador humano
 def input_coordenada_jh():
-    i = input("Indica la coordenada x")
-    j = input("Indica la coordenada y")
+    i = input("🧍🏼‍♀️Indica la coordenada x")
+    j = input("🧍🏼‍♀️Indica la coordenada y")
     return i, j
 
 #Función para determinar disparo de la maquina
@@ -55,8 +55,8 @@ def disparar(coordenada_i, coordenada_j, tablero):
 
 #Función para comprobar si la coordenada es válida
 def coordenada_valida(i,j):
-    if len(i)!= 1 or len(j)!= 1:
-        return False,i,j
+    if not i.isdigit() or not j.isdigit():
+        return False, i, j
     elif i.isalpha() or j.isalpha():
         return False,i,j
     else:
@@ -78,16 +78,16 @@ def jugada_humana(tablero_maquina, tablero_disparos):
         i, j = input_coordenada_jh()
         validez, i, j = coordenada_valida(i,j)
         if validez == False:
-            print(f"Coordenada inválida. Sólo se admiten numeros de 0 al 10, según tablero.")
-            print(f"Pierdes el turno")
+            print(f"Coordenada inválida🙄. Sólo se admiten numeros de 0 al 10, mira el tablero🙄.")
+            print(f"Pierdes el turno🤷🏼‍♀️")
             continuar = False
         else:
             if tablero_maquina[j][i] == "B":
                 tablero_maquina[j][i] = "X"
                 tablero_disparos[j][i] = "X"
                 print()
-                print(f"Tocado en posición {i+1},{j}. Vuelves a disparar.")
-                print("Registro de disparos humanos :")
+                print(f"🚤Tocado en posición {i+1},{j}. Vuelves a disparar.")
+                print("Registro de disparos humanos:")
                 imprimir_tablero(tablero_disparos)
                 continuar = True
             elif tablero_maquina[j][i] == " ":
@@ -95,15 +95,15 @@ def jugada_humana(tablero_maquina, tablero_disparos):
                 tablero_disparos[j][i] = "O"
                 continuar = False
                 print()
-                print(f"Agua en posición {i+1},{j}.")
+                print(f"💧Agua en posición {i+1},{j}.")
                 print("Registro de disparos humanos :")
                 imprimir_tablero(tablero_disparos) 
             elif tablero_disparos[j][i] == "X" or tablero_disparos[j][i] == "O":
                 continuar = False
-                print(f"Posición {i+1},{j} ya había sido disparada. Pierdes tu turno")
+                print(f"Posición {i+1},{j} ya había sido disparada🙄. Pierdes tu turno")
             else:
                 continuar = False
-                print(f"Coordenada {i+1},{j}, inválida. Pierdes tu turno.")
+                print(f"Coordenada {i+1},{j}, inválida🙄. Pierdes tu turno.")
     return continuar,tablero_maquina,tablero_disparos
 
 #Función de la jugada máquina
@@ -111,23 +111,23 @@ def jugada_maquina(tablero_jugador):
     continuar = True
     while continuar == True:
         print()
-        print("Esperando disparo de la máquina:")
+        print("🤖 Esperando disparo de la máquina 🤖 :")
         time.sleep(2)
         i, j = disparo_maquina()
         if tablero_jugador[j][i] == "B":
             tablero_jugador[j][i] = "X"
             continuar = True
-            print(f"Tocado en posición {i+1},{j}. La máquina ha acertado.")
+            print(f"🚤Tocado en posición {i+1},{j}. La máquina ha acertado.")
         elif tablero_jugador[j][i] == " ":
             tablero_jugador[j][i] = "O"
             continuar = False
-            print(f"Agua en posición {i+1},{j}.")
+            print(f"💧Agua en posición {i+1},{j}.")
         elif tablero_jugador[j][i] == "X" or tablero_jugador[j][i] == "O":
             continuar = False
-            print(f"Posición {i+1},{j} ya había sido disparada.")
+            print(f"🙄Posición {i+1},{j} ya había sido disparada.")
         else:
             continuar = False
-            print(f"Coordenada {i+1},{j}, inválida.")
+            print(f"🙄Coordenada {i+1},{j}, inválida.")
     return continuar,tablero_jugador
 
 #Función para saber si hay barcos en el tablero

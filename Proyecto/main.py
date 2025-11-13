@@ -11,16 +11,16 @@ tablero_disparos = crear_tablero(10)
 #Se pintan los barcos en los tableros(maquina y humano) 
 tablero_jugador = pintar_barcos(barcos_jh,tablero_jugador)
 tablero_maquina = pintar_barcos(barcos_m,tablero_maquina)
-print("COMIENZA EL JUEGO...")
+print("COMIENZA EL JUEGO...🏃🏼‍♀️‍➡️")
 print()
 
-print("TABLERO JUGADOR")
+print("ESTE ES TU TABLERO🧍🏼‍♀️:")
 imprimir_tablero(tablero_jugador)
 print()
-print("REGISTRO DE DISPAROS HUMANOS")
+print("REGISTRO DE DISPAROS HUMANOS💣:")
 imprimir_tablero(tablero_disparos)
 print()
-print("ATENTO, se te pedirá una coordenada (x,y), se admiten sólo numeros del 0 a 10. Si te equivocas perderás el turno.")
+print("ATENCIÓN 🧐, se te pedirá una coordenada (x,y), se admiten sólo numeros del 0 a 10. Si te equivocas perderás el turno.")
 
 
 continuar = True
@@ -30,16 +30,17 @@ while continuar:
         print()
         jugada_humana(tablero_maquina,tablero_disparos)
         if buscando_barcos(tablero_maquina) == False:
-            print("Felicidades! Has derribado todo los barcos. Salvaste la raza humana")
+            print("Felicidades!🎉🎉 Has derribado todo los barcos. Salvaste la raza humana")
+            print("Nos vemos la próxima👋")
             break
         else:
             jugada_maquina(tablero_jugador)
             print("Tu tablero ha quedado la siguiente forma:")
             imprimir_tablero(tablero_jugador)
             if buscando_barcos(tablero_jugador) == False:
-                print("La máquina ha derribado todos tus barcos.")
+                print(" 🤖 🤖La máquina ha derribado todos tus barcos.🤖 🤖")
                 continuar = False
             else:
                 continue
     except Exception as e:
-        print(f"Ocurrió un error : SOS UN IMBECIL")
+        print(f" 🙄 Qué tocaste? Esta vez te la perdono, vuelve a tirar😒")
